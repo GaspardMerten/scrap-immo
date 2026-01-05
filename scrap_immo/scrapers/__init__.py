@@ -1,6 +1,7 @@
 """Scraper execution and management."""
 
 import importlib.util
+import json
 import sys
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -169,7 +170,6 @@ class ScraperExecutor:
         # Handle features
         features = prop_data.get("features")
         if isinstance(features, list):
-            import json
             features = json.dumps(features)
         
         property_obj = Property(
@@ -247,7 +247,6 @@ class ScraperExecutor:
         if prop_data.get("features"):
             features = prop_data["features"]
             if isinstance(features, list):
-                import json
                 features = json.dumps(features)
             property_obj.features = features
     
